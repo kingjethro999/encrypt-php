@@ -5,6 +5,7 @@ namespace Encrypt\Vault;
 use Encrypt\Crypto\Crypto;
 use Encrypt\Crypto\EncryptionResult;
 use Encrypt\Exceptions\EncryptException;
+use Encrypt\Version;
 
 /**
  * Vault management for the Encrypt tool.
@@ -63,7 +64,7 @@ class Vault
                 'salt' => '',
                 'hmac' => '',
                 'created_at' => date('c'),
-                'version' => '1.0.0'
+                'version' => Version::getVersion()
             ];
 
             if (file_put_contents($this->configPath, json_encode($initialConfig, JSON_PRETTY_PRINT)) === false) {
